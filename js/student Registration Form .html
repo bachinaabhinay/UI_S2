@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form</title>
+  <script>
+    document.getElementById("myFrame").onload = onloadf() 
+    function onloadf(){
+      var input = document.getElementById("textname").focus();
+    }
+    function validate(){ 
+      if( document.StudentRegistration.textnames.value == "" ){
+        alert( "Please provide your Name!" );
+        document.StudentRegistration.textnames.focus() ;
+        return false;
+      }
+      if( document.StudentRegistration.paddress.value == "" ){
+        alert( "Please provide your Postal Address!" );
+        document.StudentRegistration.paddress.focus() ;
+        return false;
+      } 
+      if( document.StudentRegistration.city.value == "" ){
+        alert( "Please provide your City!" );
+        document.StudentRegistration.city.focus() ;
+        return false;
+      }        
+      if(document.StudentRegistration.state.value == "" ){
+       alert("Please provide your state!");
+       document.StudentRegistration.state.focus() ;
+       return false;
+      }
+      if( document.StudentRegistration.pincode.value == "" || isNaN( document.StudentRegistration.pincode.value) || document.StudentRegistration.pincode.value.length != 6 ){
+       alert( "Please provide a pincode in the format ######." );
+       document.StudentRegistration.pincode.focus() ;
+       return false;
+      }
+      if( document.StudentRegistration.mobileno.value == "" || isNaN( document.StudentRegistration.mobileno.value) || document.StudentRegistration.mobileno.value.length != 10 ){
+         alert( "Please provide a Mobile No in the format 123." );
+        document.StudentRegistration.mobileno.focus() ;
+       return false;
+      }
+       return( true );
+    }
+  </script>
+</head>
+<body>
+  <form action="#" name="StudentRegistration" onsubmit="return(validate());">
+    <table cellpadding="2" width="20%" bgcolor ="blue" align="center" cellspacing="2">
+      <tr>
+      <td colspan=2> <center><font size=4><b>Student Registration Form</b></font></center></td>
+      </tr>
+      <tr>
+      <td>Name of Student</td>
+      <td><input onload="onloadf" type=text name=textnames id="textname" size="30"></td>
+      </tr>
+      <tr>
+      <td>MobileNo</td>
+      <td><input type="number" name="mobileno" id="mobileno" size="30"></td>
+      </tr> 
+      <tr>
+      <td>Address line</td>
+      <td><input type="text" name="paddress" id="paddress" size="30"></td>
+      </tr>
+      <tr>
+      <td>City</td>
+      <td><input type="text" name="city" id="city" size="30" ></td>
+      </tr>
+      <tr>
+      <td>State</td>
+      <td><input type="text"name="state" id="state" size="30" ></td>
+      </tr>
+      <tr>
+        <td>PinCode</td>
+        <td><input type="number" name="pincode" id="pincode" size="30"></td>
+      </tr>
+      <tr>
+        <td><input type="reset"></td>
+        <td colspan="2"><input type="submit" value="Submit Form" /></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>
